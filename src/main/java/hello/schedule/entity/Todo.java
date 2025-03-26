@@ -5,7 +5,7 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public class TodoList {
+public class Todo {
 
     private Long id;
     private String name;
@@ -14,4 +14,12 @@ public class TodoList {
     private String todo;
     private Integer date;
 
+
+    public Todo(String name, Integer password, String title, String todo, Integer date) {
+        this.name = name;
+        this.password = password;
+        this.title = title;
+        this.todo = todo;
+        this.date = date;
+    }
 }

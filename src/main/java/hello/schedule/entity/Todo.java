@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
+// 데이터베이스의 매핑되는 객체이다.
+//entity객체는 데이터베이스에 실질적으로 저장됨
 @Getter
 @AllArgsConstructor
 public class Todo {

@@ -20,6 +20,6 @@ public class TodoServiceImpl implements TodoService {
 
         Todo todo = new Todo(dto.getName(),dto.getPassword(),dto.getTitle(),dto.getTodo(),dto.getDate());
 
-        return new ResponseDto();
+        return new ResponseDto(todo);
     }
 }

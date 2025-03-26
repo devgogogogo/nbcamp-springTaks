@@ -6,4 +6,6 @@ public interface TodoRepository {
 
 
     Todo createTodo(Todo todo);
+
+    Todo findTodoById(Long id);
 }

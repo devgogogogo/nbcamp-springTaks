@@ -21,4 +21,11 @@ public class TodoRepositoryImpl implements TodoRepository{
 
         return todo;
     }
+
+    @Override
+    public Todo findTodoById(Long id) {
+        // 공부차원으로 변수로 저장해서 담았습니다.
+        Todo todo = todoList.get(id);
+        return todo;
+    }
 }

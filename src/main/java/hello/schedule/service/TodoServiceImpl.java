@@ -42,4 +42,32 @@ public class TodoServiceImpl implements TodoService {
 
         return new ResponseDto(todo);
     }
+
+    @Override
+    public ResponseDto updateTodo(Long id, String title, String name, String todo) {
+                          //조회로 불러온다. -->>위에 구현한것을 재활용할수 있다.
+        Todo foundTodo = todoRepository.findTodoById(id);
+
+        if (foundTodo == null) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "아이뒤가 존재하지 않습니다 id = " + id);
+        }
+        if (title == null || name == null || todo == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "올려놓은 todo가 존재하지 않습니다.");
+        }
+
+        // 내일 아침에 질문할거 !
+//        Todo todo1 = new Todo(name, title, todo); //새로운 시도로 해봤는데. (X) --> 반환DTO에 id,date값이 null값이 나온다.
+        foundTodo.updateTodo(name, title, todo);
+
+        return new ResponseDto(foundTodo);
+    }
+
+    @Override
+    public void deleteTodo(Long id) {
+        Todo foundTodo = todoRepository.findTodoById(id);
+        if (foundTodo == null) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "아이뒤가 존재하지 않습니다 id = " + id);
+        }
+        todoRepository.deleteTodl(id);
+    }
 }

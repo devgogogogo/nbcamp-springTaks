@@ -8,4 +8,6 @@ public interface TodoRepository {
     Todo createTodo(Todo todo);
 
     Todo findTodoById(Long id);
+
+    void deleteTodl(Long id);
 }

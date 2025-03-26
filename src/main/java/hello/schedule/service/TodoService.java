@@ -10,4 +10,9 @@ public interface TodoService {
     ResponseDto createTodo(RequestDto requestDto);
 
     ResponseDto findTodoById(Long id);
+
+
+    ResponseDto updateTodo(Long id, String title, String name, String todo);
+
+    void deleteTodo(Long id);
 }

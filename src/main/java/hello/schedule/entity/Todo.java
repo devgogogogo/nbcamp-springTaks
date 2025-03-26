@@ -26,4 +26,16 @@ public class Todo {
         this.todo = todo;
         this.date = date;
     }
+
+    public Todo(String name, String title, String todo) {
+        this.name = name;
+        this.title = title;
+        this.todo = todo;
+    }
+
+    public void updateTodo(String name, String title, String todo) {
+        this.name = name;
+        this.title = title;
+        this.todo = todo;
+    }
 }

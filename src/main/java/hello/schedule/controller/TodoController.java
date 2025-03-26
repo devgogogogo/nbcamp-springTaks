@@ -28,11 +28,29 @@ public class TodoController {
 
         return new ResponseEntity<>(todoService.createTodo(dto), HttpStatus.OK);
     }
+
     //Read (단건조회)
     //식별자 {id}를 조회하면 클라이언트에게 ResponseDto 반환
     @GetMapping("/{id}")
     public ResponseEntity<ResponseDto> findTodoById(@PathVariable Long id) {
 
-        return new ResponseEntity<>(todoService.findTodoById(id),HttpStatus.OK);
+        return new ResponseEntity<>(todoService.findTodoById(id), HttpStatus.OK);
+    }
+
+    //update (부분수정)
+    @PutMapping("/{id}") //(title,name,todo) --> 3개만 수정할수 있게 했다.
+    // 반환타입은 ResponseDto
+    //@RequestBody -->> id,dto.getTitle(),dto.getName(),dto.getTodo() -->아이뒤를 넣을었때 수정할 내용들
+    public ResponseEntity<ResponseDto> updateTodo(@PathVariable Long id, @RequestBody RequestDto dto) {
+
+        return new ResponseEntity<>(todoService.updateTodo(id, dto.getTitle(), dto.getName(), dto.getTodo()), HttpStatus.OK);
+    }
+
+    //Delete (삭제)
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteTodo(@PathVariable Long id) {
+
+        todoService.deleteTodo(id);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }

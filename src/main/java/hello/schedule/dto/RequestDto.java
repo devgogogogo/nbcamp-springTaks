@@ -10,5 +10,4 @@ public class RequestDto {
     private String title;
     private String todo;
     private Integer date;
-
 }

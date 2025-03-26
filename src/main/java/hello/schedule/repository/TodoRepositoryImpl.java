@@ -15,9 +15,10 @@ public class TodoRepositoryImpl implements TodoRepository{
     @Override
     public Todo createTodo(Todo todo) {
 
-        long createdTodo = todoList.isEmpty() ? 1 : Collections.max(todoList.keySet()) + 1;
+        long todoId = todoList.isEmpty() ? 1 : Collections.max(todoList.keySet()) + 1;
+        todo.setId(todoId);
 
-        todoList.put(createdTodo, todo);
+        todoList.put(todoId, todo);
 
         return todo;
     }

@@ -5,5 +5,5 @@ import hello.schedule.dto.ResponseDto;
 
 public interface TodoService {
 
-    ResponseDto creatTodo(RequestDto requestDto);
+    ResponseDto createTodo(RequestDto requestDto);
 }

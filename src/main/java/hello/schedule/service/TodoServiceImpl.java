@@ -16,10 +16,12 @@ public class TodoServiceImpl implements TodoService {
     }
 
     @Override
-    public ResponseDto creatTodo(RequestDto dto) {
+    public ResponseDto createTodo(RequestDto dto) {
 
         Todo todo = new Todo(dto.getName(),dto.getPassword(),dto.getTitle(),dto.getTodo(),dto.getDate());
 
-        return new ResponseDto(todo);
+        todoRepository.createTodo(todo);
+
+        return new ResponseDto();
     }
 }

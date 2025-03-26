@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/todos")
+@RequestMapping("/todos")
 public class TodoController {
 
     private final TodoService todoService;
@@ -20,6 +20,6 @@ public class TodoController {
     @PostMapping
     public ResponseEntity<ResponseDto> findAllTodo(@RequestBody RequestDto requestDto) {
 
-        return new ResponseEntity<>(todoService.creatTodo(requestDto), HttpStatus.OK);
+        return new ResponseEntity<>(todoService.createTodo(requestDto), HttpStatus.OK);
     }
 }
